@@ -61,8 +61,9 @@ D. Serikbayev East Kazakhstan Technical University
 
 | Курсы                                                           | Дата              |
 | ----------------------------------------------------------------| :---------------: |
-| CCNA 1 - Implementing and Administering Cisco Solutions
-ТОО Академия Телекоммуникаций Казинформтелеком                           | 2022 |
+| CCNA 1 - Implementing and Administering Cisco Solutions (ТОО Академия Телекоммуникаций Казинформтелеком) | 2022 |
+| SASAA - Реализация повышенной сетевой защиты с использованием Cisco ASA (Академия КИТ (Fast Lane - Russia LP)) | 2020 |
+| Cisco ICND1 - Основы сетевых технологий (АНО ДПО УЦ «СИБИНФОЦЕНТР») | 2020 |
 
 ---
 
