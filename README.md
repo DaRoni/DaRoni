@@ -22,7 +22,8 @@ Here are some ideas to get you started:
 Я начинающий тестировщик ПО с более чем 13-летним опытом работы в IT. Ранее работал системным администратором и инженером-системотехником. Окончил курс «Тестирование ПО с нуля. Теория + практика. Уровень PRO». Обладаю прочной технической базой и понимаю жизненный цикл ПО. Стремлюсь применять знания в тестировании на практике и вносить вклад в разработку качественных и надёжных программных продуктов.
 
 
-- 📫 Как связаться со мной: [![LinkedIn Badge](https://img.shields.io/badge/-@darkhan-sarmurzanov-blue?style=flat&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/darkhan-sarmurzanov//) [![Gmail Badge](https://img.shields.io/badge/-Gmail-red?style=flat&logo=Gmail&logoColor=white)](mailto:dario891@gmail.com)
+- 📫 Как связаться со мной: [![LinkedIn Badge](https://img.shields.io/badge/Darkhan-blue?style=flat&label=Linkedin&link=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fdarkhan-sarmurzanov
+)](https://www.linkedin.com/in/darkhan-sarmurzanov//) [![Gmail Badge](https://img.shields.io/badge/-Gmail-red?style=flat&logo=Gmail&logoColor=white)](mailto:dario891@gmail.com)
 
 ---
 
