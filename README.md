@@ -67,4 +67,32 @@ Here are some ideas to get you started:
 | Cisco ICND1 - Основы сетевых технологий (АНО ДПО УЦ «СИБИНФОЦЕНТР») | 2020 |
 
 ---
+<!--
+## 🧪️ Testing Artefacts 
 
+- [**Web Application Testing**](https://github.com/)  
+
+- [**API Testing with Postman**](https://github.com/)  
+   
+- [**MongoDB**](https://github.com/t)  
+ 
+- [**SQL**](https://github.com/)    
+     
+- [**Mobile Application Testing**](https://github.com/)  
+ 
+- [**Bash**](https://github.com/) 
+  
+- [**Git**](https://github.com/)
+
+- [**Charles Proxy**](https://github.com/)
+
+---
+
+## 🗣 Languages
+- **Russian:** Native
+- **English:** Professional Proficiency
+
+---
+
+## [My CV](https://github.com/)
+-->
