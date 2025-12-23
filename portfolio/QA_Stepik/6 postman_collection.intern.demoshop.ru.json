@@ -1,0 +1,1145 @@
+{
+	"info": {
+		"_postman_id": "9bdacc14-1c9c-4c01-8825-5821509a6579",
+		"name": "intern.demoshop.ru",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50097473",
+		"_collection_link": "https://www.postman.com/dario891-6854445/workspace/darkhan-sarmurzanov-s-workspace/collection/50097473-9bdacc14-1c9c-4c01-8825-5821509a6579?action=share&source=collection_link&creator=50097473"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.contains('application/json');\r",
+									"});\r",
+									"pm.test(\"Body have product information (product_id, name, description, price, category, manufacturer, imageUrl, freeShipping)\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"product_id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"price\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"category\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"manufacturer\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"imageUrl\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"freeShipping\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/products",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Add new products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 500ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);",
+									"});",
+									"",
+									"pm.test(\"Content-Type header is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.contains('text/html');",
+									"});",
+									"",
+									"pm.test(\"Response contains product ID, save as variable\", function () {",
+									"// Extract ID from plain text response using regex",
+									"const responseText = pm.response.text();",
+									"console.log('Response text:', responseText);",
+									"",
+									"const idMatch = responseText.match(/ID:\\s*(\\d+)/);",
+									"",
+									"if (idMatch && idMatch[1]) {",
+									"    const extractedId = idMatch[1];",
+									"    console.log('Extracted ID:', extractedId);",
+									"    pm.collectionVariables.set(\"ID\", extractedId);",
+									"} else {",
+									"    console.log(\"ID not found in response\");",
+									"}});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Darkhan's Example Product\",\r\n  \"description\": \"This is an example product from Darkhan.\",\r\n  \"price\": 100,\r\n  \"category\": \"Electronics\",\r\n  \"manufacturer\": \"Darkhan's Example Manufacturer\",\r\n  \"imageUrl\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Arduino_ftdi_chip-1.jpg/1200px-Arduino_ftdi_chip-1.jpg\",\r\n  \"freeShipping\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/add-product",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"add-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.contains('application/json');\r",
+									"});\r",
+									"pm.test(\"Body have product information (product_id, name, description, price, category, manufacturer, imageUrl, freeShipping)\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"product_id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"price\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"category\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"manufacturer\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"imageUrl\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"freeShipping\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products/id/{{ID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products",
+								"id",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product update full",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.contains('text/html');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string=\\\"Товар обновлён\\\"\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Товар обновлён\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"price\": 0,\r\n  \"category\": \"string\",\r\n  \"manufacturer\": \"string\",\r\n  \"imageUrl\": \"string\",\r\n  \"freeShipping\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/products/id/{{ID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products",
+								"id",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.contains('text/html');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string=\\\"Товар частично обновлён\\\"\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Товар частично обновлён\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"description\": \"string\",\r\n  \"price\": 0,\r\n  \"category\": \"string\",\r\n  \"manufacturer\": \"string\",\r\n  \"imageUrl\": \"string\",\r\n  \"freeShipping\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/products/id/{{ID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products",
+								"id",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.contains('application/json');\r",
+									"});\r",
+									"pm.test(\"Body have product information (product_id, name, description, price, category, manufacturer, imageUrl, freeShipping)\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"product_id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"price\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"category\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"manufacturer\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"imageUrl\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"freeShipping\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const url = pm.request.url.toString();\r",
+									"const categoryParamMatch = url.match(/category=([^&]+)/);\r",
+									"if (categoryParamMatch && categoryParamMatch.length > 1) {\r",
+									"    const expectedCategory = categoryParamMatch[1];\r",
+									"    console.log(\"Ожидаемый параметр из запроса):\", expectedCategory);    \r",
+									"        const responseJson = pm.response.json();\r",
+									"        let isAllMatching = true;\r",
+									"        if (Array.isArray(responseJson)) {\r",
+									"            for (const item of responseJson) {\r",
+									"                if (item.category !== expectedCategory) {\r",
+									"                    isAllMatching = false;\r",
+									"                    break;\r",
+									"                }\r",
+									"            }\r",
+									"        } else {\r",
+									"             console.log(\"ответ не в массиве\");\r",
+									"        }\r",
+									"        pm.test(\"Параметр 'category' в запросе соответствует значению 'category' в ответе \"+ expectedCategory, function () {\r",
+									"             pm.expect(isAllMatching).to.be.true; \r",
+									"        });\r",
+									"} else {\r",
+									"    console.log(\"Параметр 'category' не найден в запросе\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products/FindByCategory?category=Phones",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products",
+								"FindByCategory"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Phones",
+									"description": "Категория продукта"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by manufacturer",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.contains('application/json');\r",
+									"});\r",
+									"pm.test(\"Body have product information (product_id, name, description, price, category, manufacturer, imageUrl, freeShipping)\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"product_id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"price\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"category\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"manufacturer\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"imageUrl\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"freeShipping\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const url = pm.request.url.toString();\r",
+									"const manufacturerParamMatch = url.match(/manufacturer=([^&]+)/);\r",
+									"if (manufacturerParamMatch && manufacturerParamMatch.length > 1) {\r",
+									"    const expectedmanufacturer = manufacturerParamMatch[1];\r",
+									"    console.log(\"Ожидаемый параметр из запроса):\", expectedmanufacturer);    \r",
+									"        const responseJson = pm.response.json();\r",
+									"        let isAllMatching = true;\r",
+									"        if (Array.isArray(responseJson)) {\r",
+									"            for (const item of responseJson) {\r",
+									"                if (item.manufacturer !== expectedmanufacturer) {\r",
+									"                    isAllMatching = false;\r",
+									"                    break;\r",
+									"                }\r",
+									"            }\r",
+									"        } else {\r",
+									"             console.log(\"ответ не в массиве\");\r",
+									"        }\r",
+									"        pm.test(\"Параметр 'manufacturer' в запросе соответствует значению 'manufacturer' в ответе \"+ expectedmanufacturer, function () {\r",
+									"             pm.expect(isAllMatching).to.be.true; \r",
+									"        });\r",
+									"} else {\r",
+									"    console.log(\"Параметр 'manufacturer' не найден в запросе\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products/FindByManufacturer?manufacturer=Apple",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products",
+								"FindByManufacturer"
+							],
+							"query": [
+								{
+									"key": "manufacturer",
+									"value": "Apple",
+									"description": "Производитель продукта"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by shiping",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.contains('application/json');\r",
+									"});\r",
+									"pm.test(\"Body have product information (product_id, name, description, price, category, manufacturer, imageUrl, freeShipping)\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"product_id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"price\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"category\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"manufacturer\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"imageUrl\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"freeShipping\");\r",
+									"});\r",
+									"\r",
+									"const url = pm.request.url.toString();\r",
+									"const freeShippingParamMatch = url.match(/freeShipping=([^&]+)/);\r",
+									"if (freeShippingParamMatch && freeShippingParamMatch.length > 1) {  \r",
+									"    let expectedfreeShipping1;  \r",
+									"    const expectedfreeShipping = freeShippingParamMatch[1];\r",
+									"    console.log(\"Ожидаемый параметр из запроса:\", expectedfreeShipping);    \r",
+									"        const responseJson = pm.response.json();\r",
+									"        let isAllMatching = true;\r",
+									"        if (Array.isArray(responseJson)) {\r",
+									"            for (const item of responseJson) {\r",
+									"                if (expectedfreeShipping == \"true\" ) { expectedfreeShipping1 = 1;} else { expectedfreeShipping1 = 0;}\r",
+									"\r",
+									"                if (item.freeShipping !== expectedfreeShipping1) {\r",
+									"                    console.log(\"******----  \"+ item.freeShipping);\r",
+									"                    isAllMatching = false;\r",
+									"                    break\r",
+									"                } \r",
+									"            }\r",
+									"        } else {\r",
+									"             console.log(\"Ответ не в массиве\");             \r",
+									"        }        \r",
+									"        pm.test(\"Параметр 'freeShipping' в запросе соответствует значению 'freeShipping' в ответе \"+ expectedfreeShipping1, function () {\r",
+									"             pm.expect(isAllMatching).to.be.true; \r",
+									"        });\r",
+									"} else {\r",
+									"    console.log(\"Параметр 'freeShipping' не найден в запросе\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products/FindByShipping?freeShipping=false",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products",
+								"FindByShipping"
+							],
+							"query": [
+								{
+									"key": "freeShipping",
+									"value": "false",
+									"description": "Наличие бесплатной доставки (true/false)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.contains('application/json');\r",
+									"});\r",
+									"pm.test(\"Body have product information (product_id, name, description, price, category, manufacturer, imageUrl, freeShipping)\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"product_id\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"name\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"description\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"price\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"category\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"manufacturer\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"imageUrl\");\r",
+									"    pm.expect(pm.response.text()).to.include(\"freeShipping\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const url = pm.request.url.toString();\r",
+									"const freeShippingParamMatch = url.match(/freeShipping=([^&]+)/);\r",
+									"if (freeShippingParamMatch && freeShippingParamMatch.length > 1) {  \r",
+									"    let expectedfreeShipping1;  \r",
+									"    const expectedfreeShipping = freeShippingParamMatch[1];\r",
+									"    console.log(\"Ожидаемый параметр из запроса:\", expectedfreeShipping);    \r",
+									"        const responseJson = pm.response.json();\r",
+									"        let isAllMatching = true;\r",
+									"        if (Array.isArray(responseJson)) {\r",
+									"            for (const item of responseJson) {\r",
+									"                if (expectedfreeShipping == \"true\" ) { expectedfreeShipping1 = 1;} else { expectedfreeShipping1 = 0;}\r",
+									"\r",
+									"                if (item.freeShipping !== expectedfreeShipping1) {\r",
+									"                    console.log(\"******----  \"+ item.freeShipping);\r",
+									"                    isAllMatching = false;\r",
+									"                    break\r",
+									"                } \r",
+									"            }\r",
+									"        } else {\r",
+									"             console.log(\"Ответ не в массиве\");             \r",
+									"        }        \r",
+									"        pm.test(\"Параметр 'freeShipping' в запросе соответствует значению 'freeShipping' в ответе \"+ expectedfreeShipping1, function () {\r",
+									"             pm.expect(isAllMatching).to.be.true; \r",
+									"        });\r",
+									"} else {\r",
+									"    console.log(\"Параметр 'freeShipping' не найден в запросе\");\r",
+									"}\r",
+									"\r",
+									"\r",
+									"const manufacturerParamMatch = url.match(/manufacturer=([^&]+)/);\r",
+									"if (manufacturerParamMatch && manufacturerParamMatch.length > 1) {\r",
+									"    const expectedmanufacturer = manufacturerParamMatch[1];\r",
+									"    console.log(\"Ожидаемый параметр из запроса):\", expectedmanufacturer);    \r",
+									"        const responseJson = pm.response.json();\r",
+									"        let isAllMatching = true;\r",
+									"        if (Array.isArray(responseJson)) {\r",
+									"            for (const item of responseJson) {\r",
+									"                if (item.manufacturer !== expectedmanufacturer) {\r",
+									"                    isAllMatching = false;\r",
+									"                    break;\r",
+									"                }\r",
+									"            }\r",
+									"        } else {\r",
+									"             console.log(\"ответ не в массиве\");\r",
+									"        }\r",
+									"        pm.test(\"Параметр 'manufacturer' в запросе соответствует значению 'manufacturer' в ответе \"+ expectedmanufacturer, function () {\r",
+									"             pm.expect(isAllMatching).to.be.true; \r",
+									"        });\r",
+									"} else {\r",
+									"    console.log(\"Параметр 'manufacturer' не найден в запросе\");\r",
+									"}\r",
+									"\r",
+									"\r",
+									"const categoryParamMatch = url.match(/category=([^&]+)/);\r",
+									"if (categoryParamMatch && categoryParamMatch.length > 1) {\r",
+									"    const expectedCategory = categoryParamMatch[1];\r",
+									"    console.log(\"Ожидаемый параметр из запроса):\", expectedCategory);    \r",
+									"        const responseJson = pm.response.json();\r",
+									"        let isAllMatching = true;\r",
+									"        if (Array.isArray(responseJson)) {\r",
+									"            for (const item of responseJson) {\r",
+									"                if (item.category !== expectedCategory) {\r",
+									"                    isAllMatching = false;\r",
+									"                    break;\r",
+									"                }\r",
+									"            }\r",
+									"        } else {\r",
+									"             console.log(\"ответ не в массиве\");\r",
+									"        }\r",
+									"        pm.test(\"Параметр 'category' в запросе соответствует значению 'category' в ответе \"+ expectedCategory, function () {\r",
+									"             pm.expect(isAllMatching).to.be.true; \r",
+									"        });\r",
+									"} else {\r",
+									"    console.log(\"Параметр 'category' не найден в запросе\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products/filter?category=&manufacturer=&freeShipping=false&minPrice&maxPrice",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "",
+									"description": "Категория продукта"
+								},
+								{
+									"key": "manufacturer",
+									"value": "",
+									"description": "Производитель продукта"
+								},
+								{
+									"key": "freeShipping",
+									"value": "false",
+									"description": "Наличие бесплатной доставки (true/false)"
+								},
+								{
+									"key": "minPrice",
+									"value": null,
+									"description": "Минимальная цена продукта"
+								},
+								{
+									"key": "maxPrice",
+									"value": null,
+									"description": "Максимальная цена продукта"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", function () {\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.contains('text/html');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string=\\\"Товар удалён\\\"\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Товар удалён\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products/id/{{ID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products",
+								"id",
+								"{{ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add to cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"productId\": 2,\r\n  \"quantity\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cart",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"var cartItemIds = [];",
+									"var productIds = [];",
+									"for (const cart_item of jsonData) {",
+									"    cartItemIds.push(cart_item.cart_item_id);",
+									"    productIds.push(cart_item.product_id);",
+									"}",
+									"pm.collectionVariables.set(\"cart_item_id_all\", cartItemIds);",
+									"pm.collectionVariables.set(\"product_id_all\", productIds);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/getCart",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"getCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cart item update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Get the product_id_all collection variable",
+									"let ids = pm.collectionVariables.get(\"cart_item_id_all\");",
+									"",
+									"    // Try to convert to string if it's an array or other type",
+									"    if (Array.isArray(ids)) {",
+									"        console.log(\"Converting array to string...\");",
+									"        ids = ids.join(\",\");",
+									"    } else {",
+									"        ids = String(ids);",
+									"    }",
+									"",
+									"let firstId = Number(ids.split(\",\")[0]);",
+									"pm.collectionVariables.set(\"cart_item_id\", firstId);",
+									"console.log(\"Первый ID:\", firstId);",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"quantity\": {{$randomInt}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cart/{{cart_item_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cart",
+								"{{cart_item_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete from cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cart/{{cart_item_id}}?cartItemId={{cart_item_id}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cart",
+								"{{cart_item_id}}"
+							],
+							"query": [
+								{
+									"key": "cartItemId",
+									"value": "{{cart_item_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"const postRequest = {\r",
+							"    url: pm.collectionVariables.get(\"baseURL\") + \"/login\",\r",
+							"    method: \"POST\",\r",
+							"    header: {\r",
+							"        \"Content-Type\": \"application/json\"\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: \"raw\",\r",
+							"        raw: JSON.stringify({\r",
+							"            username: pm.collectionVariables.get(\"username\"),\r",
+							"            password: pm.collectionVariables.get(\"password\")\r",
+							"        })\r",
+							"    }\r",
+							"};\r",
+							"pm.sendRequest(postRequest, function (err, response) {\r",
+							"    if (err) {\r",
+							"        console.error(err);\r",
+							"    } else {\r",
+							"        if (response.code === 200) {\r",
+							"            var responseBody = response.json();\r",
+							"            var token = responseBody.token;\r",
+							"            pm.collectionVariables.set(\"key\", token);\r",
+							"        } else {\r",
+							"            console.error('Failed to login. Response code:', response.code);\r",
+							"        }\r",
+							"    }\r",
+							"});"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{key}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		},
+		{
+			"key": "key",
+			"value": ""
+		},
+		{
+			"key": "ID",
+			"value": ""
+		},
+		{
+			"key": "username",
+			"value": ""
+		},
+		{
+			"key": "password",
+			"value": ""
+		},
+		{
+			"key": "cart_item_id_all",
+			"value": ""
+		},
+		{
+			"key": "product_id_all",
+			"value": ""
+		},
+		{
+			"key": "cart_item_id",
+			"value": "",
+			"description": "for update and delete"
+		}
+	]
+}

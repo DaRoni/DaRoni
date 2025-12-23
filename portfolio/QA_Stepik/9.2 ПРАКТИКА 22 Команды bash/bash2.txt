@@ -1,0 +1,187 @@
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ touch bash2.txt
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ pwd
+/c/Users/dario/testdir
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ mkdir test3
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ ls
+bash1.txt  bash2.txt  test1/  test3/  test4/
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cd test3
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ touch 4 5 6
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ echo -e "row1\nrow2\nrow3\nrow4" >>4
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ cat 4
+row1
+row2
+row3
+row4
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ echo -e "row1\nrow2\nrow3\nrow4" >>5
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ echo -e "row1\nrow2\nrow3\nrow4" >>6
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ cat 6
+row1
+row2
+row3
+row4
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ cat 5
+row1
+row2
+row3
+row4
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ grep "row2" 5
+row2
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ grep -R "row*" test3
+grep: test3: No such file or directory
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ cd ..
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ grep -R "row*" *
+test3/4:row1
+test3/4:row2
+test3/4:row3
+test3/4:row4
+test3/5:row1
+test3/5:row2
+test3/5:row3
+test3/5:row4
+test3/6:row1
+test3/6:row2
+test3/6:row3
+test3/6:row4
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ grep -c "row*" 6
+grep: 6: No such file or directory
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ grep -c "row*" ./test3/6
+4
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ find ./test3 -name 5
+./test3/5
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ find ./test3 -name 5 -exec rm -r {} \;
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ echo "test" >>./test3/4
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cat ./test3/4
+row1
+row2
+row3
+row4
+test
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cd test3
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ sed -i "s/test/fail/g" 4
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ cat 4
+row1
+row2
+row3
+row4
+fail
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ echo "test" >>4
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ cat 4
+row1
+row2
+row3
+row4
+fail
+test
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ ps aux
+      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
+      793       1     793      22884  ?         197609 16:43:54 /usr/bin/mintty
+      794     793     794      16852  pty0      197609 16:43:54 /usr/bin/bash
+     1410     794    1410      43316  pty0      197609 18:09:36 /usr/bin/ps
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ ps
+      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
+      793       1     793      22884  ?         197609 16:43:54 /usr/bin/mintty
+      794     793     794      16852  pty0      197609 16:43:54 /usr/bin/bash
+     1414     794    1414      36564  pty0      197609 18:09:41 /usr/bin/ps
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ ps -aux
+ps: user x unknown
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ kill 1414
+bash: kill: (1414) - No such process
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ ping -c 5 rusau.net
+Доступ запрещен. Для параметра -c требуются права администратора.
+
+dario@Darkhan-Acer MINGW64 ~
+$ ping -n 5 rusau.net
+
+Обмен пакетами с rusau.net [5.181.161.75] с 32 байтами данных:
+Ответ от 5.181.161.75: число байт=32 время=50мс TTL=46
+Ответ от 5.181.161.75: число байт=32 время=21мс TTL=51
+Ответ от 5.181.161.75: число байт=32 время=41мс TTL=51
+Ответ от 5.181.161.75: число байт=32 время=30мс TTL=51
+Ответ от 5.181.161.75: число байт=32 время=50мс TTL=49
+
+Статистика Ping для 5.181.161.75:
+    Пакетов: отправлено = 5, получено = 5, потеряно = 0
+    (0% потерь)
+Приблизительное время приема-передачи в мс:
+    Минимальное = 21мсек, Максимальное = 50 мсек, Среднее = 38 мсек
+
+dario@Darkhan-Acer MINGW64 ~
+$ curl -X GET "https://petstore.swagger.io/v2/pet/findByStatus?status=sold"
+[{"id":28,"category":{"id":40,"name":"dog"},"name":"Cookie","photoUrls":["string"],"tags":[{"id":9,"name":"West Highland Terrier"}],"status":"sold"},{"id":12,"category":{"id":0,"name":"dogs"},"photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"sold"},{"id":13,"category":{"id":0,"name":"cats"},"photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"sold"},{"id":9,"category":{"id":0,"name":"cats"},"name":"King Kong","photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"sold"},{"id":73005,"category":{"id":1,"name":"Dogs"},"name":"Rex_Updated","photoUrls":["url1","url2"],"tags":[{"id":1,"name":"tag1"}],"status":"sold"},{"id":1004,"name":"Rocky","photoUrls":[],"tags":[],"status":"sold"},{"id":6,"category":{"id":9770,"name":"string"},"name":"doggie","photoUrls":["string","string"],"tags":[{"id":7376,"name":"string"},{"id":760,"name":"string"}],"status":"sold"},{"id":60079,"category":{"id":1,"name":"Dogs"},"name":"Rex_Updated","photoUrls":["url1","url2"],"tags":[{"id":1,"name":"tag1"}],"status":"sold"},{"id":87998,"category":{"id":1,"name":"Dogs"},"name":"Rex_Updated","photoUrls":["url1","url2"],"tags":[{"id":1,"name":"tag1"}],"status":"sold"},{"id":23,"category":{"id":23,"name":"string"},"name":"rewz","photoUrls":["string"],"tags":[{"id":0,"name":"string"}],"status":"sold"},{"id":1765990299,"category":{"id":85,"name":"fish"},"name":"dCVJFOFL","photoUrls":["https://example.com/photo.jpg"],"tags":[{"id":55,"name":"cute"}],"status":"sold"},{"id":499,"category":{"id":973,"name":"Intelligent Steel Computer"},"name":"Rustic Fresh Bacon","photoUrls":["http://placeimg.com/640/480/animals"],"tags":[{"id":200,"name":"possimus"},{"id":625,"name":"qui ratione voluptas"}],"status":"sold"},{"id":76342797,"category":{"id":-51928180,"name":"consequat deserunt"},"name":"doggie","photoUrls":["proident consectetur dolor enim","eiusmod ut ex"],"tags":[{"id":-79491736,"name":"officia elit esse"},{"id":-95156536,"name":"consequat ullamco"}],"status":"sold"},{"id":89188,"category":{"id":1,"name":"Dogs"},"name":"Rex_Updated","photoUrls":["url1","url2"],"tags":[{"id":1,"name":"tag1"}],"status":"sold"},{"id":84748,"category":{"id":1,"name":"Dogs"},"name":"Rex_Updated","photoUrls":["url1","url2"],"tags":[{"id":1,"name":"tag1"}],"status":"sold"},{"id":71229,"category":{"id":1,"name":"Dogs"},"name":"Rex_Updated","photoUrls":["url1","url2"],"tags":[{"id":1,"name":"tag1"}],"status":"sold"},{"id":1765991651,"category":{"id":25,"name":"dog"},"name":"DPqIQHgq","photoUrls":["https://example.com/photo.jpg"],"tags":[{"id":45,"name":"white"}],"status":"sold"},{"id":1765991654,"category":{"id":20,"name":"bird"},"name":"Updated Name","photoUrls":["https://example.com/photo.jpg"],"tags":[{"id":80,"name":"beautiful"}],"status":"sold"},{"id":1,"category":{"id":1,"name":"cat"},"name":"dog","photoUrls":[],"tags":[],"status":"sold"},{"id":467283,"category":{"id":1,"name":"Dogs"},"name":"UpdatedDog-467283","photoUrls":["https://example.com/photo1.jpg"],"tags":[{"id":1,"name":"test-tag"}],"status":"sold"},{"id":475598,"category":{"id":1,"name":"Dogs"},"name":"UpdatedDog-475598","photoUrls":["https://example.com/photo1.jpg"],"tags":[{"id":1,"name":"test-tag"}],"status":"sold"}]
+dario@Darkhan-Acer MINGW64 ~
+$
+
+dario@Darkhan-Acer MINGW64 ~
+$
+
+dario@Darkhan-Acer MINGW64 ~
+$ curl -X 'POST' 'https://petstore.swagger.io/v2/user' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"id": 111,"username": "darkhan","firstName": "darkhan","lastName": "Son","email": "test@email.com","password": "string","phone": "+7777777","userStatus": 0}'
+{"code":200,"type":"unknown","message":"111"}
+dario@Darkhan-Acer MINGW64 ~
+$ curl -X 'GET' 'https://petstore.swagger.io/v2/user/darkhan'
+{"id":111,"username":"darkhan","firstName":"darkhan","lastName":"Son","email":"test@email.com","password":"string","phone":"+7777777","userStatus":0}
+dario@Darkhan-Acer MINGW64 ~
+$

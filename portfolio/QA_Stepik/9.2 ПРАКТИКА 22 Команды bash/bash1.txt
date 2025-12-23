@@ -1,0 +1,165 @@
+dario@Darkhan-Acer MINGW64 ~
+$ pwd
+/c/Users/dario
+
+dario@Darkhan-Acer MINGW64 ~
+$ mkdir testdir
+
+dario@Darkhan-Acer MINGW64 ~
+$ cd /testdir
+bash: cd: /testdir: No such file or directory
+
+dario@Darkhan-Acer MINGW64 ~
+$ cd testdir
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ touch bash1.txt
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cd ~
+
+dario@Darkhan-Acer MINGW64 ~
+$ pwd
+/c/Users/dario
+
+dario@Darkhan-Acer MINGW64 ~
+$ cd testdir
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ mkdir test1
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cd test1
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test1
+$ touch 1 2 3
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test1
+$ ls
+1  2  3
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test1
+$ ls -l
+total 0
+-rw-r--r-- 1 dario 197609 0 Dec 17 16:46 1
+-rw-r--r-- 1 dario 197609 0 Dec 17 16:46 2
+-rw-r--r-- 1 dario 197609 0 Dec 17 16:46 3
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test1
+$ cd ~
+
+dario@Darkhan-Acer MINGW64 ~
+$ pwd
+/c/Users/dario
+
+dario@Darkhan-Acer MINGW64 ~
+$ cd testdir
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ mkdir test2
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ rmdir test2
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ rm ./test1/2
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ mkdir test3
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cd test3
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ touch 1.txt 2.txt
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ ls
+1.txt  2.txt
+
+dario@Darkhan-Acer MINGW64 ~/testdir/test3
+$ cd ..
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ rm -rf test3
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ ls
+bash1.txt  test1/
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ mkdir test4
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ mv ./test 1/1 ./test4
+mv: cannot stat './test': No such file or directory
+mv: cannot stat '1/1': No such file or directory
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ mv ./test1/1 ./test4
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ mv ./test1/3 ./test4
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ echo line
+line
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ echo line >> ./test4/1
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ echo line >> ./test4/1
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ echo line >> ./test4/1
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ ls
+bash1.txt  test1/  test4/
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cat ./test4/1
+line
+line
+line
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ nano ./test4/1
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ echo line3 >> ./test4/3
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ echo line3 >> ./test4/3
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ echo line3 >> ./test4/3
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cat ./test4/1 ./test/3
+line
+line
+line
+cat: ./test/3: No such file or directory
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cat ./test4/1 ./test4/3
+line
+line
+line
+line3
+line3
+line3
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ nano ./test4/1
+
+dario@Darkhan-Acer MINGW64 ~/testdir
+$ cat ./test4/1 ./test4/3
+line_new
+line_new
+line_new
+line3
+line3
+line3
