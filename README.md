@@ -70,21 +70,15 @@ Here are some ideas to get you started:
 
 ## 🧪️ Тестовые артефакты
 
-- [**Web Application Testing**](https://github.com/)  
+- [**Web Application Testing**](https://github.com/DaRoni/DaRoni/tree/main/portfolio/web)  
 
-- [**API Testing with Postman**](https://github.com/)  
+- [**API Testing with Postman**](https://www.postman.com/dario891-6854445/darkhan-sarmurzanov-s-workspace/collection/aydbxea/intern-demoshop-ru?action=share&creator=50097473)  
    
-- [**MongoDB**](https://github.com/t)  
- 
-- [**SQL**](https://github.com/)    
+- [**DB**](https://github.com/DaRoni/DaRoni/tree/main/portfolio/db)  
      
-- [**Mobile Application Testing**](https://github.com/)  
+- [**Mobile Application Testing**](https://github.com/DaRoni/DaRoni/tree/main/portfolio/mobile)  
  
-- [**Bash**](https://github.com/) 
-  
-- [**Git**](https://github.com/)
-
-- [**Charles Proxy**](https://github.com/)
+- [**Bash**](https://github.com/DaRoni/DaRoni/tree/main/portfolio/9.2_%D0%9F%D0%A0%D0%90%D0%9A%D0%A2%D0%98%D0%9A%D0%90_22_%D0%9A%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B_bash)
 
 ---
 <!--
@@ -93,6 +87,6 @@ Here are some ideas to get you started:
 - **English:** Professional Proficiency
 ---
 -->
-## [My CV]([https://github.com/](https://drive.google.com/file/d/1IxCcF_SWhL1yXDV5LiligrLdkSTZ-DeB/view?usp=sharing))
+## [My CV] ([https://github.com/](https://drive.google.com/file/d/1IxCcF_SWhL1yXDV5LiligrLdkSTZ-DeB/view?usp=sharing))
 
 ---
