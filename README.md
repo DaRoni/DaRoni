@@ -68,7 +68,7 @@ Here are some ideas to get you started:
 
 ---
 
-## 🧪️ Testing Artefacts 
+## 🧪️ Тестовые артефакты
 
 - [**Web Application Testing**](https://github.com/)  
 
