@@ -29,7 +29,7 @@ Here are some ideas to get you started:
 ---
 
 ### 🛠 Владение инструментами:
-<div white-space: nowrap;
+<div white-space: nowrap; display: inline-block;
 >
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/>
   <img src="https://raw.githubusercontent.com/DaRoni/DaRoni/refs/heads/main/ico/youtrack.png" title="YouTrack" alt="YouTrack" width="40" height="40"/>
