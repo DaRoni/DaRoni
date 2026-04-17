@@ -37,6 +37,7 @@ Here are some ideas to get you started:
   </tr>
  </table>
 <div>
+  </div>
 <span>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/>
 <img src="https://raw.githubusercontent.com/DaRoni/DaRoni/refs/heads/main/ico/youtrack.png" title="YouTrack" alt="YouTrack" width="40" height="40"/>
@@ -54,7 +55,7 @@ Here are some ideas to get you started:
 <img src="https://raw.githubusercontent.com/DaRoni/DaRoni/refs/heads/main/ico/gnu_bash_official_logo_icon_169099.png" title="Bash" alt="Bash" width="40" height="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" title="VS Code" alt="VS Code" width="40" height="40"/>
 </span>
-</div>
+
 ---
 
 ### 🎓 Образование:
