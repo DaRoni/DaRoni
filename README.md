@@ -30,8 +30,9 @@ Here are some ideas to get you started:
 
 ### 🛠 Владение инструментами:
 
+| --------------------------------------------------:|:--------:|:----------------------:| :---------------: |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/> | <img src="https://raw.githubusercontent.com/DaRoni/DaRoni/refs/heads/main/ico/youtrack.png" title="YouTrack" alt="YouTrack" width="40" height="40"/> | Вычислительная техника и программное обеспечение | 2007 г. - 2011 г. |
 
-   <tr><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/></tr><tr><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/></tr>
 ---
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" title="Jira" alt="Jira" width="40" height="40"/>
 <img src="https://raw.githubusercontent.com/DaRoni/DaRoni/refs/heads/main/ico/youtrack.png" title="YouTrack" alt="YouTrack" width="40" height="40"/>
