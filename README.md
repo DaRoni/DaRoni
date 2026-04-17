@@ -87,6 +87,6 @@ Here are some ideas to get you started:
 - **English:** Professional Proficiency
 ---
 -->
-## ([**My CV**](https://drive.google.com/file/d/1IxCcF_SWhL1yXDV5LiligrLdkSTZ-DeB/view?usp=sharing))
+## ([**My CV**](https://drive.google.com/file/d/1Gz_tO0pZ0kCI3qwDj19_iOkIpCo2Z467/view?usp=sharing))
 
 ---
