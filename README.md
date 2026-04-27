@@ -88,6 +88,6 @@ Junior QA Engineer обладаю прочной технической базо
 - **English:** Professional Proficiency
 ---
 -->
-## ([**My CV**](https://drive.google.com/file/d/1Gz_tO0pZ0kCI3qwDj19_iOkIpCo2Z467/view?usp=sharing))
+## ([**My CV**](https://drive.google.com/file/d/1VdI7KytonLDWN-t2Ctr6OB8N0neL1YUY/view?usp=sharing))
 
 ---
