@@ -88,6 +88,6 @@ Junior QA Engineer с сильной технической базой и бол
 - **English:** Professional Proficiency
 ---
 -->
-## ([**My CV**]([https://drive.google.com/file/d/1VdI7KytonLDWN-t2Ctr6OB8N0neL1YUY/view?usp=sharing](https://drive.google.com/file/d/1zPBlqlA2Lxf033bM4G085jy850h-0tYi/view?usp=sharing)))
+## ([**My CV**](https://drive.google.com/file/d/1zPBlqlA2Lxf033bM4G085jy850h-0tYi/view?usp=sharing)
 
 ---
